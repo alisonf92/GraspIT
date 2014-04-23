@@ -56,6 +56,39 @@
 			<result name="success" type="redirect">testresult.jsp</result>
 		</action>
 		
+		<action name="fileUploadAction" class="file.FileUploadAction" method="display">
+			<result name="none">fileUpload.jsp</result>
+		</action>
+		
+		<action name="uploadFile" class="file.FileUploadAction" method="execute">
+			<interceptor-ref name="exception"/>
+				<interceptor-ref name="i18n"/>
+				<interceptor-ref name="fileUpload">
+				
+			</interceptor-ref> 
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+ 
+			<result name="success">uploadSuccess.jsp</result>
+			<result name="input">fileUpload.jsp</result>
+			<result name="failure">failure.jsp</result>
+		</action>
+		
+		<action name="download" class="file.FileUploadAction" method="download">
+			<result name="success" type="stream">
+				<param name="contentType">${contentType}</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">${contentDisposition}</param>		
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
 	</package>
 
 
