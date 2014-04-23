@@ -30,6 +30,7 @@ public class FileUploadAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private File fileUpload;
 	private String fileUploadContentType, description;
+	
 	private String fileUploadFileName;
 	private Connection connection;
 	private PreparedStatement uploadFile;	
@@ -40,8 +41,7 @@ public class FileUploadAction extends ActionSupport {
 	private File myFile;
 	private String myFileContentType;
 	private String myFileFileName;
-	private String destPath;
-
+	private String destPath = "C://tomcat/work/";
 	
 	
 	
@@ -66,17 +66,16 @@ public class FileUploadAction extends ActionSupport {
 	}
 
 	public String execute() throws IOException, SQLException, FileNotFoundException {	
-		destPath = "C://tomcat/work/";
+	
 		File destFile = new File(destPath, myFileFileName);
 		FileUtils.copyFile(myFile, destFile);
 		connection = ConnectionFactory.getInstance().getConnection();
 System.out.println("src " + destFile);
 System.out.println("src " + myFile);
-		uploadFile = connection.prepareStatement("INSERT INTO document(file) VALUES(?)");	
+		uploadFile = connection.prepareStatement("INSERT INTO document(description, file) VALUES(?,?)");	
 
-		
-		//uploadFile.setString(1, description);
-		uploadFile.setString(1, myFileFileName);
+		uploadFile.setString(1, description);
+		uploadFile.setString(2, myFileFileName);
 		uploadFile.executeUpdate();
 		uploadFile.close();
 		connection.close();
@@ -114,13 +113,13 @@ System.out.println("src " + myFile);
 	
 	public String download(){
 		try{
-			connection = ConnectionFactory.getConnection();
+			connection = ConnectionFactory.getInstance().getConnection();
 			uploadFile = connection.prepareStatement("SELECT file FROM document");
 			results = uploadFile.executeQuery();
 			while(results.next()){
 				String fileName= results.getString("file");
 				fileDownload = new File(destPath, fileName);
-				fileInputStream = new FileInputStream(fileDownload);
+				setFileInputStream(new FileInputStream(fileDownload));
 			}
 		}
 		catch(Exception e){
@@ -133,6 +132,18 @@ System.out.println("src " + myFile);
 	}
 	public String getContentType() {
 		return "text/plain";
+	}
+	public InputStream getFileInputStream() {
+		return fileInputStream;
+	}
+	public void setFileInputStream(InputStream fileInputStream) {
+		this.fileInputStream = fileInputStream;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
 

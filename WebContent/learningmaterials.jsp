@@ -1,15 +1,7 @@
-
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="s" uri="/struts-tags"%>
-<% 
-if("".equals(session.getAttribute("username"))){
-%>
-<jsp:forward page="signin.jsp"/>
-<%	
-}else{
-%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -51,20 +43,23 @@ if("".equals(session.getAttribute("username"))){
            
                 </div>
             </div>
-
+			
+			
+					
+			
 				
 				<div class="col-md-6 column">
-				
+				<div>
+				<s:property value="description"/>
+	<s:url id="fileDownload" namespace="/" action="download" ></s:url> <s:a href="%{fileDownload}">Download</s:a>
+				</div>
 
-<%
-}
-%>
 				</div>
 			</div>
 		</div>
 	</div>
 
-
+</div>
 </body>
 </html>
 
