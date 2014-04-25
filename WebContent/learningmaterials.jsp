@@ -33,7 +33,10 @@
             <div class="col-md-3">
                 <p class="lead">Profile</p>
                 <div class="list-group">
-                <a href="learningmaterials.jsp" class="list-group-item active">Learning Materials</a>
+            
+
+ <a href="learningmaterials.jsp" class="list-group-item active">Learning Materials</a>
+
 
 									<a href="selectSubject.jsp" class="list-group-item active"></i> Take Quiz</a></li>
 
@@ -49,10 +52,8 @@
 			
 				
 				<div class="col-md-6 column">
-				<div>
-				<s:property value="description"/>
-	<s:url id="fileDownload" namespace="/" action="download" ></s:url> <s:a href="%{fileDownload}">Download</s:a>
-				</div>
+				
+<form action="getFiles"><button  type="submit" class="btn btn-default" value = "Submit"> Submit</button></form>
 
 				</div>
 			</div>

@@ -33,13 +33,13 @@
             <div class="col-md-3">
                 <p class="lead">Profile</p>
                 <div class="list-group">
-                <a href="learningmaterials.jsp" class="list-group-item active">Learning Materials</a>
+                <a href="learningmaterials.jsp" class="list-group-item active" action = "getFiles">Learning Materials</a>
 
-									<a href="selectSubject.jsp" class="list-group-item active"></i> Take Quiz</a></li>
+									<a href="selectSubject.jsp" class="list-group-item active"> Take Quiz</a>
 
-									<a href="streamclient.jsp" class="list-group-item active"></i> Live Class</a></a></li>
+									<a href="streamclient.jsp" class="list-group-item active"> Live Class</a>
 
-									<a href="#"></a></li>
+									<a href="#"></a>
            
                 </div>
             </div>
@@ -49,15 +49,41 @@
 			
 				
 				<div class="col-md-6 column">
-<s:property value="description"/>
-	<s:url id="fileDownload" namespace="/" action="download" ></s:url> <s:a href="%{fileDownload}">Download</s:a>
+				
+		<s:iterator value = "documents">
+			<table class="table table-hover">
+			
+				<thead>
+					<tr>
+						
+						<th>
+							Description
+						</th>
+						<th>
+							File
+						</th>
+					
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<s:property value="description"/>
+						</td>
+						<td>
+						<s:url id="fileDownload" namespace="/" action="download" ></s:url> <s:a href="%{fileDownload}">Download</s:a>
 
-				</div>
-			</div>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+			</s:iterator>
 		</div>
 	</div>
-
 </div>
+				</div>
+			</div>
 </body>
 </html>
 

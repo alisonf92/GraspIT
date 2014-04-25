@@ -39,6 +39,13 @@ public class QuestionAction extends ActionSupport implements RequestAware, Sessi
 			addActionError("Please select Subject");
 			return ERROR;
 		} else 
+			if (paperAlready == 1) {
+			addActionError("You have already completed paper of this "
+					+ "lanuage.Plesae choose another language !");
+			return ERROR;
+		} 
+		
+		else 
 			 {
 			System.out.println("Subject "+ getSubject());
 			questPaper = getQues(getSubject());
