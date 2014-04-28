@@ -19,11 +19,11 @@
 				
 					<a href = "index.jsp">GraspIT!</a>
 				</li>
-				<li>
+				<li class="disabled">
 					<a href="signin.jsp">Learn</a>
 				</li>
-				<li class="disabled">
-					<a href="adminlogin.jsp">Teach</a>
+				<li >
+					<a href="adminhome.jsp">Teach</a>
 				</li>
 				
 			</ul>

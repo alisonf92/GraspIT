@@ -18,11 +18,11 @@
 				
 					<a href = "index.jsp">GraspIT!</a>
 				</li>
-				<li>
-					<a href="signin.jsp">Learn</a>
-				</li>
 				<li class="disabled">
-					<a href="adminlogin.jsp">Teach</a>
+					<a >Learn</a>
+				</li>
+				<li >
+					<a href="fileUpload.jsp">Teach</a>
 				</li>
 				
 			</ul>
@@ -43,12 +43,13 @@
             </div>
 		
 				<div class="col-md-6 column">
-				<h4 style="color:#999;margin-bottom:40px;" class="center"> Upload CV Document for <s:property value="jobName" /></h4>
+				<h4> Upload Material For Lectures <s:property value="docName" /></h4>
  
 <s:form action="uploadFile" namespace="/" method="POST" enctype="multipart/form-data">
- 	<s:textfield name = "description" label = "File Description "></s:textfield>
-	<s:file name="myFile" label="Select a File to upload" size="40" />
  
+ File Description:  <input type="text" id="description" name="description" placeholder="File Description" >
+</br><input type="file" id="myFile" name="myFile" placeholder="Select a File to Upload" >
+</br>
 	<s:submit value="Upload" name="submit" />
  
 </s:form>

@@ -21,14 +21,10 @@ public class ResultAction implements Serializable {
 	int counter = 0, i = 0;
 
 
-	public Connection getConnection() {
-		Connection con;
-		con = ConnectionFactory.getInstance().getConnection();
-		return con;
-	}
+	
 
 	public void selectedAns(PaperResultModel obPaperSubmitModel, String language) {
-		connect = getConnection();
+		connect = ConnectionFactory.getInstance().getConnection();
 		String ansQuesQuery = "insert into result(username,quesno,selectopt,subject) values(?,?,?,?)";
 		try {
 			pst = connect.prepareStatement(ansQuesQuery);
@@ -60,7 +56,7 @@ public class ResultAction implements Serializable {
 		ArrayList selectedOptAns = new ArrayList();
 		ArrayList rightQuesNAns = new ArrayList();
 		FinalResultModel obFinalResultModel = new FinalResultModel();
-		connect = getConnection();
+		connect = ConnectionFactory.getInstance().getConnection();
 		String sql1 = "select quesno, selectopt from  result where username=? and subject=?";
 		try {
 			pst = connect.prepareStatement(sql1);

@@ -152,11 +152,11 @@
 				
 					<a href = "index.jsp">GraspIT!</a>
 				</li>
-				<li>
-					<a href="signin.jsp">Learn</a>
-				</li>
 				<li class="disabled">
-					<a href="adminlogin.jsp">Teach</a>
+					<a>Learn</a>
+				</li>
+				<li>
+					<a href="stream.jsp">Teach</a>
 				</li>
 				
 			</ul>

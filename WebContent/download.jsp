@@ -18,10 +18,10 @@
 					<a href = "index.jsp">GraspIT!</a>
 				</li>
 				<li>
-					<a href="signin.jsp">Learn</a>
+					<a href="home.jsp">Learn</a>
 				</li>
 				<li class="disabled">
-					<a href="adminlogin.jsp">Teach</a>
+					<a >Teach</a>
 				</li>
 				
 			</ul>
@@ -65,6 +65,7 @@
 					
 					</tr>
 				</thead>
+				
 				<tbody>
 					<tr>
 						<td>

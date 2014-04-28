@@ -16,8 +16,7 @@ public class PaperResultAction extends ActionSupport implements ModelDriven<Pape
 	String questionNumber = null;
 	String selectedAns = null;
 	ActionContext context = ActionContext.getContext();
-	HttpServletRequest request = (HttpServletRequest) context
-			.get(ServletActionContext.HTTP_REQUEST);
+	HttpServletRequest request = (HttpServletRequest) context.get(ServletActionContext.HTTP_REQUEST);
 
 	@Override
 	public String execute() throws Exception {

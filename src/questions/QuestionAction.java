@@ -111,8 +111,7 @@ public class QuestionAction extends ActionSupport implements RequestAware, Sessi
 
 	public ArrayList getQues(String subject) {
 		questPaper = new ArrayList();
-		String queryQues = "select quesid,quest,ans1,ans2,ans3,ans4 from question where subject='"
-				+ subject + "' order by rand() limit 2";
+		String queryQues = "select quesid,quest,ans1,ans2,ans3,ans4 from question where subject='" + subject + "' order by rand() limit 2";
 		try {
 			pst = connect.prepareStatement(queryQues);
 			rs = pst.executeQuery();

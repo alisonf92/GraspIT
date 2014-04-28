@@ -17,10 +17,10 @@
 				
 					<a href = "index.jsp">GraspIT!</a>
 				</li>
-				<li>
-					<a href="signin.jsp">Learn</a>
-				</li>
 				<li class="disabled">
+					<a >Learn</a>
+				</li>
+				<li class="enabled">
 					<a href="adminlogin.jsp">Teach</a>
 				</li>
 				
@@ -31,7 +31,7 @@
 					<h2>Please Sign In</h2>
 						<div class="form-group"  >
 							 <label >Username
-							 <input class="form-control" name="adminname" type="text" /></label>
+							 <input class="form-control" name="username" type="text" /></label>
 						</div>
 						<div class="form-group">
 							 <label>Password

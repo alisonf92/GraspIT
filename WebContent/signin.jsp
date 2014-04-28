@@ -61,7 +61,7 @@
 							</div>    
 							<div class="control-group">
 							
-								<label class="control-label"  for="username">Full Name</label>
+								<label class="control-label"  for="name">Full Name</label>
 								<div class="controls">
 									<input type="text" id="name" name="name" placeholder="" class="input-xlarge">
 								</div>
@@ -69,9 +69,9 @@
 							
 							<div class="control-group">
 							
-								<label class="control-label" for="password">Username</label>
+								<label class="control-label" for="username">Username</label>
 								<div class="controls">
-									<input type="password" id="username" name="username" placeholder="" class="input-xlarge">
+									<input type="text" id="username" name="username" placeholder="" class="input-xlarge">
 								</div>
 							</div>
 							<div class="control-group">

@@ -12,13 +12,13 @@ import com.opensymphony.xwork2.ModelDriven;
 
 
 public class LoginAction extends ActionSupport implements ModelDriven<LoginModel>, SessionAware, RequestAware {
-	LoginModel obloginModel;
+	LoginModel login;
 	Map session;
 	Map request;
 
 	public String execute() throws Exception {
 		RegistrationDAO obLoginDao = new RegistrationDAO();
-		boolean bol = obLoginDao.studentLogin(obloginModel);
+		boolean bol = obLoginDao.studentLogin(login);
 
 		session.put("username", request.get("username"));
 		if (bol) {
@@ -35,8 +35,8 @@ public class LoginAction extends ActionSupport implements ModelDriven<LoginModel
 
 	@Override
 	public LoginModel getModel() {
-		obloginModel = new LoginModel();
-		return obloginModel;
+		login = new LoginModel();
+		return login;
 	}
 
 	public Map getSession() {
@@ -58,10 +58,10 @@ public class LoginAction extends ActionSupport implements ModelDriven<LoginModel
 	@Override
 	public void validate() {
 		// TODO Auto-generated method stub
-		if ("".equals(obloginModel.getUsername())) {
+		if ("".equals(login.getUsername())) {
 			addFieldError("username", getText("studentname"));
 		}
-		if ("".equals(obloginModel.getPassword())) {
+		if ("".equals(login.getPassword())) {
 			addFieldError("password", getText("password"));
 		}
 		super.validate();
